@@ -1,0 +1,1352 @@
+/* Estilos variables */
+:root{
+    --color-principal: #FFF;
+    --color-secundary: #04B4E0;
+    --color-bg: #F2F7F9;
+    --color-transparente: transparent;
+    --color-icon: #b5b6b7;
+    --color-title: #222;
+    --color-subtitle: #888;
+    --color-text: #555;
+    --color-border-reviews: #e5e6e7;
+    --color-company:#a5a6a7;
+    --color-bg-certificate: #f5f5f5;
+
+    --color-bg-contact: #fcfcfc;
+}
+
+/* Estilos generales */
+html{
+    font-size: 10px;
+}
+
+body{
+    width: 100%;
+    height: auto;
+    background-color: var(--color-bg);
+    font-family: "Poppins";
+    font-size: 1.5rem;
+    color: var(--color-text);
+    overflow: hidden;
+}
+
+h1,h2,h3,h4,h5,h6{
+    color: var(--color-title);
+}
+
+/* Estructura principal */
+.layout{
+    position: relative;
+    min-width: 1290px;
+    width: 75%;
+    height: 80vh;
+    min-height: 80vh;
+
+    margin: 10vh auto;
+    display: grid;
+    grid-template-areas: 'aside content';
+    grid-template-columns: 30% 70%;
+
+    /* sombra */
+    border-radius: 4rem;
+    box-shadow: 0 0 100px -5px rgba(0, 0, 0, .25); /* -5px para que la sombra aparezca un poquito por arriba */
+    
+
+}
+
+/* imagen de fondo */
+body{
+    background-image: url("../img/fondo.png");
+    background-size: cover; /* para que se adapte la imagen */
+    background-repeat: no-repeat;
+    background-position: -20px -120px ; /*eje X e Y*/
+
+}
+
+/* Barra lateral */
+.layout__aside{
+    grid-area: aside;
+    border-radius: 4rem 0 0 4rem;/* solo redondeamos los bordes de arriba y abajo a la derecha */
+    overflow: auto; /*oculta y agrega un scroll*/
+    overflow-x: hidden; /* para evitar el scroll */
+}
+
+.aside__userInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    min-height: 100%;
+    min-width: 30rem;
+
+    background-color: var(--color-secundary);
+    color: var(--color-principal);
+
+}
+
+.userInfo__container-image{
+    display: inline-block;
+    position: relative;
+    width: 18rem;
+    margin-top: 7rem; 
+
+    z-index: 1;
+    
+
+}
+
+/* sombreado del contenedor de la imagen de perfil mediante pseudoelemento */
+
+.userInfo__container-image::after{
+    content: "";
+    position: absolute;
+    top: 4%;
+    left: 8%;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle, #fff 0px, transparent 1px)0 0, 
+                radial-gradient(circle, #fff 0px, transparent 30%)5px 5px;
+    background-size: 0.6rem 0.6rem;
+    opacity: .5;
+    border-radius: 30rem;
+    
+    
+}
+
+.userInfo__image{
+    width: 100%;
+
+    background-color: var(--color-principal);
+    border: 3px solid var(--color-principal) ;
+    border-radius: 20rem;
+  
+}
+
+.userInfo__name{
+    margin-top: 2.6rem;
+    color: var(--color-principal);
+    font-size: 3.2rem;
+    
+}
+
+.userInfo__job{
+    color: var(--color-principal);
+    font-weight: 200;
+    font-size: 1.7rem;
+
+}
+
+
+/* iconos redes */
+.userInfo__links{
+    margin-top: 3.6rem;
+    margin-bottom: 3.6rem;
+}
+.links__social{
+    text-align: center;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.social__option{
+    height: 3rem;
+    width: 3rem;
+    font-size: 1.8rem;
+    line-height: 3.2rem;
+    opacity: .8;
+    
+    border-radius: 3rem;
+    transition: all 300ms linear;
+}
+
+.social__option:hover{
+    background-color: rgba(255, 255, 255, .20);
+    opacity: 1;
+}
+
+/* Boton */
+.userInfo__buttons{
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+    
+    
+}
+
+.userInfo__btn{
+    color: var(--color-principal);
+    
+    
+    border: 3px solid var(--color-principal);
+    padding: 1.3rem 3rem 1.3rem;
+    border-radius: 3.2rem;
+    
+    box-shadow: 0 10px 10px -8px rgba(0, 0, 0, .25); /* -8px para subir la sombra */
+    
+    transition: all 300ms ease-out;
+}
+
+.userInfo__btn:hover{
+    background-color: var(--color-principal);
+    color: var(--color-secundary);
+    
+}
+
+/* Footer */
+
+.userInfo__footer{
+    position: absolute;
+    bottom: 2rem;
+}
+
+/* Contenedor principal */
+.layout__content{
+    grid-area: content;
+    height: 100%;
+    min-height: 100%;
+
+    background-color: var(--color-secundary);
+    border-radius: 0 10rem 10rem 0;
+}
+
+.content__page{
+    background-color: var(--color-principal);
+    min-height: 100%;
+    border-radius: 3.2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.page__name{
+    color: var(--color-title);
+    font-size: 6rem;
+    margin-bottom: 1rem;
+}
+
+.page__job{
+    color: var(--color-subtitle);
+    font-size: 2.1rem;
+    font-weight: lighter;
+}
+
+
+
+
+/* Menu navegacion */
+
+.layout__menu{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -130px;
+    min-width: 11rem;
+    background-color: var(--color-transparente);
+
+
+}
+
+.menu__list{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    
+    width: 60%;
+    min-height: 32rem;
+    background-color: var(--color-principal);
+
+    box-shadow: 0 0 3rem -0.5rem rgba(0, 0, 0, .15);
+    border-radius: 6rem;
+    padding: 2rem 0;
+    margin-left: 1rem;
+}
+
+.menu__option{
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.menu__icon{
+    color: var(--color-icon);
+    font-size: 2.8rem;
+    transition: all 300ms ease-out;
+}
+
+.menu__option:hover .menu__icon,
+.menu__link--active .menu__icon {
+    color: var(--color-secundary);
+}
+
+.menu__overlay{
+    position: absolute;
+    right: 0;
+    margin-top: -3rem;
+
+    opacity: 0;
+    display: block;
+
+    background-color: var(--color-secundary);
+    white-space: nowrap;
+    color: var(--color-principal);
+    padding: .5rem 1rem;
+
+    transition: all 300ms ease-out;
+
+    border-radius: 3rem;
+}
+
+.menu__option:hover .menu__overlay{
+    opacity: 1;
+    right: 100%;
+}
+
+
+
+
+
+
+/* ABOUT ME */
+/* estilos generales (sobre mi y otras paginas) */
+.content__about, .content__resume, .content__portfolio, .content__blog, .content__contact{
+    overflow: auto;
+    height: 100%;
+    min-height: 100%;
+
+    padding: 4rem; /*para ver todo el contenido, al igual que display block, porque en contain__page teniamos el display flex*/
+    display: block;
+}
+
+.about__header, .resume__header, .portfolio__header, .blog__header, .contact__header{
+    margin-bottom: 4.5rem;
+    display: inline-block;
+
+}
+
+.about__title, .resume__title, .portfolio__title, .blog__title, .contact__title{
+    font-size: 3.2rem;
+    position: relative;
+    
+}
+
+.about__title::after, .resume__title::after, .portfolio__title::after, .blog__title::after,
+.contact__title::after{
+    content: "";
+    position: absolute;
+    
+    /* fondo pixeleado */
+    height: 30px;
+    width: 50px;
+    background-image: -webkit-repeating-radial-gradient(center center, var(--color-secundary), var(--color-secundary) 1px, transparent 0px, transparent 100%);
+    background-size: 6px 6px;
+    opacity: .5;
+    top: 20px;
+    right: -25px;
+}
+
+.title__color, .subtitle__color{
+    color: var(--color-secundary);
+}
+
+/* Informacion personal */
+
+.about__personalInfo{
+    width: 100%;
+    display: flex;
+    margin-bottom: 5rem;
+}
+
+.personalInfo__bio{
+    flex-basis: 56%; /*es como hacer un width en el flex*/
+}
+
+.personalInfo__description{
+    font-size: 1.5rem;
+    line-height: 2.4rem;
+}
+
+.personalInfo__data{
+    flex-basis: 44%;
+    padding: 0 1.5rem;
+}
+
+.personalInfo__option{
+    margin-bottom: 1rem;
+}
+
+.personalInfo__title{
+    margin-right: .5rem;
+    color: var(--color-secundary);
+    font-weight: 600;
+    
+}
+
+
+/*  Servicios  */
+.about__services{
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+.services__header{
+    display: inline-block;
+    padding-right: 1.2rem;
+    position: relative;
+    margin-bottom: 2.5rem;
+
+
+}
+.services__title{
+    font-size: 2.1rem;
+
+}
+
+.services__title::after{
+    content: "";
+    position: absolute;
+    
+    /* fondo pixeleado */
+    height: 20px;
+    width: 30px;
+    background-image: -webkit-repeating-radial-gradient(center center, var(--color-secundary), var(--color-secundary) 1px, transparent 0px, transparent 100%);
+    background-size: 6px 6px;
+    opacity: .5;
+
+    top: 15px;
+    right: 0px;
+}
+
+.services__container{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.services__service{
+    flex-basis: calc(50% - 3rem); /* usamos calc para restarle el margin right */
+    margin-right: 3rem;
+    margin-bottom: 2.5rem;
+}
+
+.service__real-icon{
+    color: var(--color-secundary);
+    font-size: 3.8rem;
+}
+
+.service__title{
+    font-size: 1.8rem;
+    margin: .5rem 0;
+}
+
+.service__description{
+    font-size: 1.4rem;
+    text-align: justify;
+}
+
+
+
+
+/* Reseñas */
+/* Estilos generales */
+
+.about__reviews, .about__clients, .about__prices, .about__extra{
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+.reviews__header, .clients__header, .prices__header, .extra__header, .resume__subheader, .contact__form-header{
+    display: inline-block;
+    padding-right: 1.2rem;
+    position: relative;
+    margin-bottom: 2.5rem;
+
+
+}
+.reviews__title, .clients__title, .prices__title, .extra__title, .resume__subtitle, .form-header__title{
+    font-size: 2.1rem;
+
+}
+
+.reviews__title::after, .clients__title::after, .prices__title::after, .extra__title::after, .resume__subtitle::after, .form-header__title::after{
+    content: "";
+    position: absolute;
+    
+    /* fondo pixeleado */
+    height: 20px;
+    width: 30px;
+    background-image: -webkit-repeating-radial-gradient(center center, var(--color-secundary), var(--color-secundary) 1px, transparent 0px, transparent 100%);
+    background-size: 6px 6px;
+    opacity: .5;
+
+    top: 15px;
+    right: 0px;
+}
+
+
+.reviews__container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.reviews__review{
+    flex-basis: calc(50% - 2.5rem);
+
+    border: 2px solid var(--color-border-reviews);
+    border-radius: 2rem;
+    padding: 0 2.5rem 1.5rem;
+    margin-right: 2.5rem;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+}
+
+.review__image-container{
+    width: 100%;
+    
+}
+
+.review__image{
+    max-width: 9rem;
+    max-height: 9rem;
+    border-radius: 9rem;
+    margin: -4.5rem auto 2rem;
+    box-shadow: 0 10px 10px -2px rgba(0, 0, 0, .25);
+}
+
+.review__description{
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.review__text{
+    font-size: 1.5rem;
+    line-height: 2.4rem;
+}
+
+.review__author{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.review__name{
+    margin-bottom: .5rem;
+    font-size: 1.5rem;
+}
+
+.review__company{
+    color: var(--color-company);
+    font-weight: 300;
+    font-size: 1.3rem;
+}
+
+.review__icon{
+    font-size: 4rem;
+    opacity: .5;
+    color: var(--color-secundary);
+}
+
+/*  Clientes */
+/* Compartimos los tipos de estilos del header y title */
+
+.about__clients{
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.clients__header{
+    margin-bottom: 3rem;
+}
+
+.clients__container{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.clients__links{
+    display: block;
+    opacity: .7;
+    width: 100%;
+    transition: all 300ms linear;
+}
+.clients__links:hover{
+    opacity: 1;
+}
+.clients__image{
+    width: 145px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+
+/* Precios */
+/* compartimos los estilos principales */
+
+.prices__container{
+    width: 100%;
+    margin-bottom: 5rem;
+    display: flex;
+    
+}
+
+.prices__box{
+    padding: 3rem;
+    border: solid 2px var(--color-border-reviews);
+    flex-basis: 50%;
+    height: 100%;
+    margin-right: 3rem;
+    text-align: center;
+    border-radius: 1.5rem;
+
+    transition: all 300ms ease-in-out;
+    
+}
+
+.prices__box:last-of-type{
+    margin-right: 0;
+}
+
+.prices__box:hover{
+    box-shadow: 0 18px 24px -5px rgba(0, 0, 0, .15);
+    transform: translateY(-1rem);
+}
+
+.prices__subtitle{
+    margin-bottom: 3rem;
+}
+
+.prices__text{
+    position: relative;
+    display: inline-block;
+}
+
+.prices__box:hover .prices__text::after{
+    content: "";
+    height: 2px;
+    background-color: var(--color-secundary);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+}
+
+.prices__price{
+    padding-bottom: 1rem;
+}
+
+.prices__number{
+    display: block;
+    font-size: 4.2rem;
+    line-height: 1;
+    color: var(--color-title);
+
+}
+
+.prices__advice{
+    color: var(--color-subtitle);
+    display: block;
+}
+
+.prices__buy{
+    padding: 2.5rem 0 3rem;
+}
+
+.prices__btn{
+    display: inline-block;
+    border: solid 2px var(--color-border-reviews);
+    box-shadow: 0 10px 10px -8px var(--color-border-reviews);
+    border-radius: 3rem;
+    padding: 1.2rem 3.1rem;
+    transition: all 300ms ease-in-out;
+}
+
+.prices__btn:hover{
+    background-color: var(--color-secundary);
+    color: var(--color-principal);
+    border: solid 2px var(--color-secundary);
+}
+
+.prices__reward{
+    font-size: 1.4rem;
+    padding: .6rem 0;
+}
+
+
+/* Informacion Extra */
+
+.extra__container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.extra__info{
+    flex-basis: 30%;
+    border: 2px solid var(--color-border-reviews);
+    text-align: center;
+    border-radius: 1rem;
+    padding: 2.5rem 1rem;
+
+    transition: all 300ms ease-in-out;
+}
+
+.extra__info:hover{
+    box-shadow: 0 18px 24px -5px rgba(0, 0, 0, .15);
+    transform: translateY(-0.5rem);
+}
+
+.extra__icon{
+    font-size: 3.3rem;
+    color: var(--color-secundary);
+    margin-bottom: 1rem;
+}
+
+.extra__subtitle{
+    font-size: 1.5rem;
+    margin: 1.5rem;
+}
+
+.extra__quantity{
+    display: block;
+    font-size: 3.6rem;
+    line-height: 5rem;
+    margin: 1.5rem 1rem 0;
+    color: var(--color-subtitle);
+}
+
+
+/* Curriculum */
+
+/* content, header y titulo con estilos generales en la seccion about me */
+
+
+
+.resume__container{
+    width: 100%;
+    display: flex;
+}
+
+/* Seccion izquierda */
+.resume__left{
+    flex-basis: 58%;
+    margin-right: 1.5rem;
+
+}
+
+.resume__timeline{
+    margin-bottom: 5rem;
+}
+
+.timeline__timeline{
+    position: relative;
+    width: 100%;
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+
+.timeline__header{
+    flex-basis: 30%;
+    text-align: right;
+    padding-right: 2.5rem;
+}
+
+.timeline__year{
+    margin: 3px 0;
+    line-height: 1.9rem;
+    font-size: 1.4rem;
+}
+.timeline__company{
+    display: block; /*porque es un span*/
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: lighter;
+    color: var(--color-company);
+}
+
+.timeline__description{
+    flex-basis: 70%;
+    margin-right: 1.5rem;
+    margin-left: 2.5rem;
+}
+
+.timeline__title{
+    font-size: 1.6rem;
+    margin-bottom: .3rem;
+}
+
+.timeline__description-text{
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+/* divisor timeline */
+
+.timeline__divider{
+    width: 1px;
+    background-color: var(--color-bg-scrollbar);
+
+    /* para posisionar las dos lineas pegadas */
+    position: absolute;
+    top: 0;
+    left: 28%;
+    bottom: -18%;
+    /* con el top:0 y el botton: -18% le estamos haciendo que la linea se expanda un 18% por abajo*/
+}
+
+/* esfera timeline */
+
+.timeline__divider::before{
+    content: "";
+    width: 15px;
+    height: 15px;
+    background-color: var(--color-secundary);
+    border-radius: 10rem;
+
+    position: absolute;
+    left: -7px;
+    top: 5px;
+
+    opacity: .25;
+
+}
+.timeline__divider::after{
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-principal);
+    border: 2px solid var(--color-secundary);
+    border-radius: 10rem;
+
+    position: absolute;
+    left: -4.5px;
+    top: 7.5px;
+
+}
+
+
+
+
+
+
+/* Seccion derecha */
+
+.resume__right{
+    flex-basis: 41%;
+    padding: 0 1.5rem;
+}
+
+.resume__skills{
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+.skills__title{
+    display: flex;
+    justify-content: space-between;
+}
+
+.skills__text{
+    font-size: 1.3rem;
+    line-height: 1.4rem;
+    margin-bottom: .4rem;
+}
+
+.skills__number{
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+    margin-bottom: .4rem;
+    color: var(--color-subtitle);
+}
+
+/* barra de progreso */
+
+.skills__progressbar{
+    height: 1rem;
+    border: 1px solid var(--color-secundary);
+    background-color: var(--color-principal);
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+    
+}
+
+.skills__percentage{
+    background-color: var(--color-secundary);
+    border: 2px solid var(--color-principal);
+    height: .8rem;
+    border-radius: 1rem;
+}
+
+.skills__percentage--p1{
+    width: 90%;
+}
+
+.skills__percentage--p2{
+    width: 80%;
+}
+
+.skills__percentage--p3{
+    width: 60%;
+}
+
+.skills__percentage--p4{
+    width: 40%;
+}
+
+.skills__percentage--p5{
+    width: 90%;
+}
+
+.skills__percentage--p6{
+    width: 80%;
+}
+
+.skills__percentage--p7{
+    width: 60%;
+}
+
+.skills__percentage--p8{
+    width: 90%;
+}
+
+/* Areas de conocimientos */
+
+.knowledges__list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.knowledges__option{
+    background-color: var(--color-secundary);
+    color: var(--color-principal);
+    font-size: 1.3rem;
+    padding: .1rem 1rem;
+    margin: .3rem;
+    border-radius: .3rem;
+}
+
+/* certificados */
+
+.resume__certificates{
+    margin: 5rem 0;
+}
+
+.certificates__container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.certificates__certificate{
+    flex-basis: calc(50% - 1.5rem);
+    border: solid 2px var(--color-bg-scrollbar);
+    border-radius: .8rem;
+    display: flex;
+}
+
+
+.certificate__logo{
+    width: 15rem;
+    height: 100%;
+    padding: 2.5rem; 
+    background-color: var(--color-bg-certificate);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.certificate__image{
+    width: 100%;
+}
+
+.certificate__content{
+    padding: 2rem 2.5rem;
+}
+
+.certificate__title{
+    font-size: 1.6rem;
+    margin-bottom: .5rem;
+}
+
+.certificate__id{
+    display: block;
+    font-size: 1.3rem;
+    color: var(--color-subtitle);
+    margin-bottom: .6rem;
+}
+
+.certificate__date{
+    font-size: 1rem;
+    color: var(--color-subtitle);
+    opacity: .7;
+}
+
+
+/* Portafolio */
+
+.portfolio__navbar{
+    margin-bottom: 3rem;
+}
+
+.portfolio__list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.portfolio__option{
+    font-size: 1.7rem;
+    opacity: .7;
+}
+
+.portfolio__link{
+    cursor: pointer;
+}
+
+.portfolio__link:hover{
+    color: var(--color-secundary);
+    text-shadow: 0 0 1px rgba(0, 0, 0, .25);
+}
+
+/* figure del portfolio */
+
+.portfolio__gallery{
+    display: flex;
+    flex-wrap: wrap;
+    /* para que wrap no afecte hay que darle el tamaño a los elementos */
+}
+
+.gallery__item{
+    flex-basis: 30%;
+    margin: .7rem;
+    position: relative;
+}
+
+.gallery__container-image{
+    /* de esta manera cuando la imagen hace el hover no sale de la caja que lo contiene */
+    overflow: hidden; 
+}
+
+.gallery__image{
+    transition: all 300ms ease-in-out;
+}
+
+.gallery__item:hover .gallery__image{
+    transform: scale(1.1);
+}
+
+.gallery__title{
+    font-size: 1.6rem;
+    padding: 1.5rem 0;
+    font-weight: bold;
+}
+
+.gallery__icon{
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+
+    background-color: var(--color-principal);
+    color: var(--color-secundary);
+
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 3rem;
+
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+}
+
+.gallery__category{
+    position: absolute;
+    top: 1.8rem;
+    left: 1.5rem;
+
+    background-color: var(--color-principal);
+    color: var(--color-text);
+    padding: .2rem .7rem;
+
+    font-size: 1.1rem;
+
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+}
+
+.gallery__item:hover .gallery__category, .gallery__item:hover .gallery__icon{
+    opacity: 1;
+}
+
+
+/* Blog */
+
+.blog__articles{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+.articles__article{
+    flex-basis: calc(50% - 2.5rem);
+    margin-bottom: 2.5rem;
+    margin-right: 2.5rem;
+}
+
+.article__top{
+    position: relative;
+    overflow: hidden;
+}
+
+.article__category{
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+
+    font-size: 1.1rem;
+    background-color: var(--color-principal);
+    color: var(--color-text);
+
+    padding: .1rem .7rem;
+    line-height: 2rem;
+
+    z-index: 3; 
+    /* asi cuando hacemos hover en la imagen no desaparece la etiquita */
+}
+
+.article__mask{
+    width: 100%;
+    height: 18.5rem;
+    /* caja de la img */
+    overflow: hidden;
+}
+
+.article__image{
+    display: block;
+    transition: all 300ms ease-in-out;
+
+}
+
+.article__top:hover .article__image{
+    transform: scale(1.1);
+}
+
+.article__logo{
+    transition: all 300ms ease-in-out;
+    opacity: 0;
+}
+
+.article__icon{
+    font-size: 4.4rem;
+    width: 4.4rem;
+    position: absolute;
+    top: calc(50% - 2.2rem);
+    left: calc(50% - 2.2rem);
+    /* para centrar la img ajustamos con cacl eliminando lo que le dimos de fontsize */
+
+    color: var(--color-principal);
+    text-align: center;
+
+}
+
+.article__top:hover .article__logo{
+    opacity: 1;
+}
+
+
+.article__botton{
+    padding: 1.5rem 2.1rem 2.1rem;
+    border: 1px solid var(--color-border-reviews);
+
+    /* eliminamos el borde superior */
+    border-top: 0;
+}
+
+.article__date{
+    display: block;
+    font-size: 1.1rem;
+    line-height: 1.2rem;
+    font-weight: 300;
+    color: var(--color-subtitle);
+}
+
+.article__title{
+    font-size: 1.8rem;
+    margin-top: .5rem;
+
+}
+
+
+/* Contactos */
+.contact__container{
+    display: flex;
+}
+
+/* seccion izquierda */
+.contact__info{
+    flex-basis: 33%;
+    padding: 0 1.5rem;
+}
+
+.contact__data{
+    width: 100%;
+    margin-bottom: 1.5rem;
+    padding: 2rem 1rem;
+    text-align: center;
+    background-color: var(--color-bg-contact);
+    border: 1px solid var(--color-border-reviews);
+}
+
+.contact__icon{
+    font-size: 3.3rem;
+    color: var(--color-secundary);
+}
+
+.contact__subtitle{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+
+/*  seccion derecha */
+
+.contact__form-box{
+    flex-basis: 66%;
+    padding: 0 1.5rem;
+}
+
+.form__container{
+    display: flex;
+}
+
+/* Form izquierda */
+
+.form__left{
+    flex-basis: 47%;
+    margin-right: 1.5rem;
+}
+
+.form__group{
+    position: relative;
+    margin-bottom: 2.8rem;
+}
+
+.form__input{
+    width: 100%;
+    position: relative;
+    display: block;
+    border: .2rem solid var(--color-border-reviews);
+    border-radius: .5rem;
+    font-size: 1.5rem;
+    padding: 1rem 2.5rem 1.2rem 1rem;
+    height: 4.2rem;
+    line-height: 2.1rem;
+
+    /* eliminamos los bordes cuando hace focus */
+    outline: none;
+
+
+    box-shadow: 0 1rem 1rem -8px rgba(0, 0, 0, .10);
+    background-color: transparent;
+}
+
+.form__input:focus{
+    outline: solid .1rem var(--color-secundary);
+}
+
+.form__label{
+    position: absolute;
+    top: 1rem;
+    left: 1.3rem;
+    color: var(--color-company);
+
+    transition: all 300ms ease-in-out;
+    z-index: 1;
+
+        /* para solucionar el tema de capas entre input y label (le da clic a lo que hay atras) */
+    pointer-events: none;
+}
+
+/* con ~ seleccionamos el elemento hermano que en este caso es input~label */
+.form__input:focus~label, .form__input:not(:placeholder-shown)~label{
+    color: var(--color-secundary);
+    top: -2rem;
+    left: 0;
+    font-size: 1.3rem;
+    z-index: 1;
+
+    /* agregamos .form__input:not(:placeholder-shown)~label para cuando la casilla del input la rellenamos el label(texto) no vuelva a la posicion*/
+
+}
+
+/* para ocultar los placeholder */
+.form__input::-webkit-input-placeholder{
+    color: transparent;
+}
+
+/* Form derecha */
+
+.form__right{
+    flex-basis: 50%;
+
+    /* limitamos el bloque por el textarea */
+    max-width: 50%;
+    max-height: 100%;
+}
+
+.form__group--textarea{
+    height: 100%;
+}
+.form__input--textarea{
+    display: block;
+
+    /* bloqueamos el textarea (tamaño) */
+    resize: none;
+    height: 100%;
+
+}
+
+/* boton */
+
+.form__button{
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    border: solid 2px var(--color-secundary);
+    color: var(--color-title);
+    background-color: var(--color-principal);
+    border-radius: 3rem;
+    box-shadow: 0 1rem 1rem -8px rgba(0, 0, 0, .22);
+    cursor: pointer;
+    margin-left: 3.5rem;
+
+    transition: all 300ms ease-in-out;
+}
+
+.form__button:hover{
+    background-color: var(--color-secundary);
+    color: var(--color-principal);
+}
+
+/* Mapa */
+
+.contact__map{
+    width: 100%;
+    min-height: 15rem;
+    margin-bottom: 3.5rem;
+    overflow: hidden;
+}
+
+.contact__iframe{
+    width: 100%;
+    height: 15rem;
+}

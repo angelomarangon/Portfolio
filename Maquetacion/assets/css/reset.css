@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+body{
+    min-height: 100vh;
+    scroll-behavior: smooth; /* si hay algun movimiento de la pagina entre anclas el es scroll que haga sea suavisado */
+    text-rendering: optimizeLegibility; /* para que renderize las fuentes mas rapido */
+    line-height: 1.5;
+}
+
+ul, ol{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    display: block;
+    font-family: inherit; /* heredado (del padre) */
+    font-size: inherit;
+    color: inherit;
+}
+p a{
+    display: inline; /* para que no ocurra un salto de linea en los parrafos */
+}
+
+img, video, iframe, picture, figure{
+    max-width: 100%;
+    display: block;
+}
+
+form, input, select, textarea, button, label{
+    font-family: inherit; /* heredado (del padre) */
+    font-size: inherit;
+    display: block;
+    color: inherit;
+}
+

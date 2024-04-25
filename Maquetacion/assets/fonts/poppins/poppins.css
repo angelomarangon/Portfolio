@@ -1,0 +1,8 @@
+/* @font-face me permite cargar una nueva fuente externa a mi proyecto */
+
+@font-face {
+    font-family: "Poppins";
+    src: url("./Poppins-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
